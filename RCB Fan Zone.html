@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCB Fan Zone - Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3a0404 100%);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            padding-top: 64px; 
+        }
+        
+        .player-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f3f4f6 100%);
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .stat-value {
+            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .role-badge {
+            background: linear-gradient(135deg, #991B1B 0%, #DC2626 100%);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .overflow-x-auto::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .overflow-x-auto::-webkit-scrollbar-track {
+            background: #E5E7EB;
+            border-radius: 4px;
+        }
+        
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+            background: #DC2626;
+            border-radius: 4px;
+        }
+        
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+            background: #B91C1C;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #DC2626;
+            color: white;
+            text-align: left;
+            padding: 0.75rem 1rem;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .team-score {
+            margin-bottom: 0.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-red-800 to-red-600 shadow-xl fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\RCB.jpg" alt="RCB Logo" class="h-12 w-12 rounded-full shadow-lg">
+                    <span class="ml-4 text-2xl font-bold text-white">RCB Fan Zone</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-yellow-300 font-medium">Home</a>
+                    <a href="#players" class="nav-link text-white hover:text-yellow-300 font-medium">Players</a>
+                    <a href="#results" class="nav-link text-white hover:text-yellow-300 font-medium">Recent Results</a>
+                    <a href="#top-performers" class="nav-link text-white hover:text-yellow-300 font-medium">Performance</a>
+                    <a href="#poll" class="nav-link text-white hover:text-yellow-300 font-medium">Poll</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white py-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-bold mb-6">Welcome to RCB Fan Zone</h1>
+            <p class="text-xl text-gray-300">Stay updated with the latest news, player information, and team statistics.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        
+        <div class="container mx-auto px-6 py-12" role="main">
+             <div id="players" class="section mb-20">
+               <h2 class="text-4xl font-bold mb-8 text-gray-800">Player Dashboard</h2>
+               
+               <div class="relative">
+                 <div class="overflow-x-auto pb-4" style="scrollbar-width: thin; scrollbar-color: #DC2626 #E5E7EB;">
+                   <div class="flex space-x-8" style="min-width: max-content; padding: 0 1px;">
+                     
+                     <!-- Virat Kohli -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Virat Kholi.webp" class="w-full h-64 object-cover" alt="Virat Kohli">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Batsman</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Virat Kohli</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">252</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">8004</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/164 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+           
+                     <!-- Faf du Plessis -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Faf du Plessis.webp" class="w-full h-64 object-cover" alt="Faf du Plessis">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Captian</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Faf du Plessis</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">145</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">4571</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/24 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+           
+                     <!-- Dinesh Karthik -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Dinesh Karthik.webp" class="w-full h-64 object-cover" alt="Dinesh Karthik">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Wicketkeeper</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Dinesh Karthik</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">257</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">4842</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/102 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+           
+                     <!-- Rajat Patidar -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Rajat Patidar.webp" class="w-full h-64 object-cover" alt="Rajat Patidar">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Batsman</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Rajat Patidar</h3>
+                           <p class="mb-4">Right-handed Batsman</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">27</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Runs</p>
+                               <p class="font-bold">799</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/5471 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+           
+                     <!-- Anuj Rawat -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Anuj Rawat.webp" class="w-full h-64 object-cover" alt="Anuj Rawat">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Batsman</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Anuj Rawat</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">24</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">318</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/10788 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+           
+                     <!-- Suyash S Prabhudessai -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Suyash S Prabhudessai.webp" class="w-full h-64 object-cover" alt="Suyash S Prabhudessai">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Batsman</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Suyash S Prabhudessai</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">11</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">126</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/7002 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+           
+                     <!-- Will Jacks -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Will Jacks.jpeg" class="w-full h-64 object-cover" alt="Will Jacks">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Batsman</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Will Jacks</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">8</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">230</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/5629 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+           
+                     <!-- Saurav Chuahan -->
+                     <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                       <div class="relative">
+                         <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Saurav Chuahan.webp" class="w-full h-64 object-cover" alt="Saurav Chuahan">
+                         <div class="absolute top-4 right-4">
+                           <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Batsman</span>
+                         </div>
+                       </div>
+                       <div class="p-6">
+                         <h3 class="text-2xl font-bold mb-2">Saurav Chuahan</h3>
+                         <p class="mb-4">Right-handed Batsman</p>
+                         <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Matches</p>
+                             <p class="font-bold">3</p>
+                           </div>
+                           <div class="bg-gray-50 rounded-lg p-3">
+                             <p>Runs</p>
+                             <p class="font-bold">18</p>
+                           </div>
+                         </div>
+                         <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/20718 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                       </div>
+                     </div>
+ 
+                      <!-- Mahipal Lomror -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Mahipal Lomror.webp" class="w-full h-64 object-cover" alt="Mahipal Lomror">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">All Rounder</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Mahipal Lomror</h3>
+                           <p class="mb-4">Left-handed Batsman</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">40</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Runs</p>
+                               <p class="font-bold">527</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/2970 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+                     
+                      <!-- Karn Sharma -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Karn Sharma.webp" class="w-full h-64 object-cover" alt="Karn Sharma">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">All-rounder</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Karn Sharma</h3>
+                           <p class="mb-4">Right-handed Batsman</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">84</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Runs</p>
+                               <p class="font-bold">350</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/1118 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Cameron Green -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Cameron Green.webp" class="w-full h-64 object-cover" alt="Cameron Green">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">All Rounder</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Cameron Green</h3>
+                           <p class="mb-4">Right-handed Batsman</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">29</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Runs</p>
+                               <p class="font-bold">707</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/5602 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Swapnil Singh -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Swapnil Singh.webp" class="w-full h-64 object-cover" alt="Swapnil Singh">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">All Rounder</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Swapnil Singh</h3>
+                           <p class="mb-4">Left-Arm Spinner</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">9</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">6</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/3180 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Mayank Dagar -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Mayank Dagar.webp" class="w-full h-64 object-cover" alt="Mayank Dagar">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Mayank Dagar</h3>
+                           <p class="mb-4">Left-Arm Spinner</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">8</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">2</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/2968 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Akash Deep -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Akash Deep.webp" class="w-full h-64 object-cover" alt="Akash Deep">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Akash Deep</h3>
+                           <p class="mb-4">Right Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">8</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">7</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/14800 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- CAlzarri Joseph -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Alzarri Joseph.webp" class="w-full h-64 object-cover" alt="Alzarri Joseph">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Alzarri Joseph</h3>
+                           <p class="mb-4">Right-Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">22</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">21</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/3098 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Lockie Ferguson -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Lockie Ferguson.webp" class="w-full h-64 object-cover" alt="Lockie Ferguson">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Lockie Ferguson</h3>
+                           <p class="mb-4">Right-Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">45</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">46</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/3729 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Mohammed Siraj -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Mohammed Siraj.webp" class="w-full h-64 object-cover" alt="Mohammed Siraj">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Mohammed Siraj</h3>
+                           <p class="mb-4">Right-Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">93</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">93</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/3840 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Yash Dayal -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Yash Dayal.webp" class="w-full h-64 object-cover" alt="Yash Dayal">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Yash Dayal</h3>
+                           <p class="mb-4">Left-Arm fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">28</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">28</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/20591 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Tom Curran -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Tom Curran.webp" class="w-full h-64 object-cover" alt="Tom Curran">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Tom Curran</h3>
+                           <p class="mb-4">Right-Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">13</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">13</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/3646 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Reece Topley -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Reece Topley.webp" class="w-full h-64 object-cover" alt="Reece Topley">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Reece Topley</h3>
+                           <p class="mb-4">Left-Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">5</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">5</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/5607 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+ 
+                      <!-- Vyshak Vijay Kumar -->
+                      <div class="player-card rounded-xl overflow-hidden shadow-lg" style="min-width: 300px;">
+                         <div class="relative">
+                           <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\Vyshak Vijay Kumar.webp" class="w-full h-64 object-cover" alt="Vyshak Vijay Kumar">
+                           <div class="absolute top-4 right-4">
+                             <span class="role-badge bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Bowler</span>
+                           </div>
+                         </div>
+                         <div class="p-6">
+                           <h3 class="text-2xl font-bold mb-2">Vyshak Vijay Kumar</h3>
+                           <p class="mb-4">Right- Arm Fast</p>
+                           <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Matches</p>
+                               <p class="font-bold">11</p>
+                             </div>
+                             <div class="bg-gray-50 rounded-lg p-3">
+                               <p>Wickets</p>
+                               <p class="font-bold">13</p>
+                             </div>
+                           </div>
+                           <a href=https://www.iplt20.com/teams/royal-challengers-bangalore/squad-details/1097 class="block w-full text-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">View Profile</a>
+                         </div>
+                       </div>
+                      
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div> 
+         
+           <!-- Squad Overview Section -->
+        
+           <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8"> Squad Overview </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Batsmen -->
+                <div class="p-6 bg-gray-50 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Batsmen</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between">
+                            <span>Virat Kohli</span>
+                            <span class="text-red-600 font-semibold">Avg: 37.20</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Faf du Plessis</span>
+                            <span class="text-red-600 font-semibold">Avg: 39.80</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Rajat Patidar</span>
+                            <span class="text-red-600 font-semibold">Avg: 32.50</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- All-rounders -->
+                <div class="p-6 bg-gray-50 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">All-rounders</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between">
+                            <span>Glenn Maxwell</span>
+                            <span class="text-red-600 font-semibold">SR: 157.50</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Cameron Green</span>
+                            <span class="text-red-600 font-semibold">SR: 145.20</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bowlers -->
+                <div class="p-6 bg-gray-50 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Bowlers</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between">
+                            <span>Mohammed Siraj</span>
+                            <span class="text-red-600 font-semibold">Wkts: 68</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Alzarri Joseph</span>
+                            <span class="text-red-600 font-semibold">Wkts: 45</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Lockie Ferguson</span>
+                            <span class="text-red-600 font-semibold">Wkts: 36</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Wicket-keepers -->
+                <div class="p-6 bg-gray-50 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Wicket-keepers</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between">
+                            <span>Dinesh Karthik</span>
+                            <span class="text-red-600 font-semibold">Dis: 89</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Anuj Rawat</span>
+                            <span class="text-red-600 font-semibold">Dis: 12</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Team Statistics -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8">Team Statistics</h2>
+            <div class="stats-grid">
+                <!-- Total Runs -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+                <h3 class="text-lg font-semibold mb-2">Total Runs</h3>
+                <p class="stat-value text-4xl font-bold">28,964</p>
+            </div>
+
+            <!-- Total Wickets -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+                <h3 class="text-lg font-semibold mb-2">Total Wickets</h3>
+                <p class="stat-value text-4xl font-bold">892</p>
+            </div>
+
+            <!-- Batting Average -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+                <h3 class="text-lg font-semibold mb-2">Team Average</h3>
+                <p class="stat-value text-4xl font-bold">32.47</p>
+            </div>
+
+            <!-- Strike Rate -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+                <h3 class="text-lg font-semibold mb-2">Strike Rate</h3>
+                <p class="stat-value text-4xl font-bold">142.8</p>
+            </div>
+            </div>
+        </div>
+
+        <!-- Recent Results and Top Performers -->
+        <div class="container mt-16">
+            <section id="results">
+                <h2 class="text-3xl font-bold mb-8">Recent Results</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Match</th>
+                                <th>Date</th>
+                                <th>Teams</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Eliminator</td>
+                                <td>MAY, WED 22, 7:30 pm IST</td>
+                                <td>
+                                    <div class="team-score">Rajasthan Royals: 174/6 (19.0 OV)</div>
+                                    <div class="team-score">Royal Challengers Bengaluru: 172/8 (20.0 OV)</div>
+                                </td>
+                                <td>Rajasthan Royals Won By 4 Wickets (Qualified)</td>
+                            </tr>
+                            <tr>
+                                <td>68</td>
+                                <td>MAY, SAT 18, 7:30 pm IST</td>
+                                <td>
+                                    <div class="team-score">Royal Challengers Bengaluru: 218/5 (20.0 OV)</div>
+                                    <div class="team-score">Chennai Super Kings: 191/7 (20.0 OV)</div>
+                                </td>
+                                <td>Royal Challengers Bengaluru Won By 27 Runs</td>
+                            </tr>
+                            <tr>
+                                <td>62</td>
+                                <td>MAY, SUN 12, 7:30 pm IST</td>
+                                <td>
+                                    <div class="team-score">Royal Challengers Bengaluru: 187/9 (20.0 OV)</div>
+                                    <div class="team-score">Delhi Capitals: 140 (19.1 OV)</div>
+                                </td>
+                                <td>Royal Challengers Bengaluru Won By 47 Runs</td>
+                            </tr>
+                            <tr>
+                                <td>58</td>
+                                <td>MAY, THU 9, 7:30 pm IST</td>
+                                <td>
+                                    <div class="team-score">Punjab Kings: 181 (17.0 OV)</div>
+                                    <div class="team-score">Royal Challengers Bengaluru: 241/7 (20.0 OV)</div>
+                                </td>
+                                <td>Royal Challengers Bengaluru Won By 60 Runs</td>
+                            </tr>
+                            <tr>
+                                <td>52</td>
+                                <td>MAY, SAT 4, 7:30 pm IST</td>
+                                <td>
+                                    <div class="team-score">Royal Challengers Bengaluru: 152/6 (13.4 OV)</div>
+                                    <div class="team-score">Gujarat Titans: 147 (19.3 OV)</div>
+                                </td>
+                                <td>Royal Challengers Bengaluru Won By 4 Wickets</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+    
+            
+                <section id="top-performers" class="mb-20">
+                    <h2 class="text-3xl font-bold mb-8">Top Performers</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Position</th>
+                                <th>Top Scorer</th>
+                                <th>Most Wickets</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024</td>
+                                <td>4</td>
+                                <td>Virat Kohli (741 runs)</td>
+                                <td>Yash Dayal (15 wickets)</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>6</td>
+                                <td>Faf Du Plessis (730 runs)</td>
+                                <td>Mohammed Siraj (19 wickets)</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>3</td>
+                                <td>Faf Du Plessis (468 runs)</td>
+                                <td>Wanindu Hasaranga (26 wickets)</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>4</td>
+                                <td>Glenn Maxwell (513 runs)</td>
+                                <td>Harshal Patel (32 wickets)</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>4</td>
+                                <td>Devdutt Padikkal (473 runs)</td>
+                                <td>Yuzvendra Chahal (21 wickets)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- Poll Section -->
+        <section id="poll" class="mb-20">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800">Fan Poll</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-semibold mb-6">Who will be the top scorer in the next match?</h3>
+                
+                <div class="space-y-4">
+                    <div class="poll-option cursor-pointer p-4 rounded-lg border border-gray-200 hover:border-red-600">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="poll" class="form-radio text-red-600 h-5 w-5">
+                            <span class="ml-3 text-lg">Virat Kohli</span>
+                        </label>
+                    </div>
+
+                    <div class="poll-option cursor-pointer p-4 rounded-lg border border-gray-200 hover:border-red-600">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="poll" class="form-radio text-red-600 h-5 w-5">
+                            <span class="ml-3 text-lg">Faf du Plessis</span>
+                        </label>
+                    </div>
+
+                    <div class="poll-option cursor-pointer p-4 rounded-lg border border-gray-200 hover:border-red-600">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="poll" class="form-radio text-red-600 h-5 w-5">
+                            <span class="ml-3 text-lg">Glenn Maxwell</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="mt-8 bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300 transform hover:scale-105">
+                    Vote Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <img src="C:\Users\hpksh\OneDrive\Desktop\IPL\Images\RCB.jpg" alt="RCB Logo" class="h-10 w-10 rounded-full inline-block">
+                    <span class="ml-3 text-xl font-bold">RCB Fan Zone</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://twitter.com/rcbtweets?lang=en" class="hover:text-red-500 transition duration-300">Twitter</a>
+                    <a href="https://www.facebook.com/RoyalChallengersBangalore/" class="hover:text-red-500 transition duration-300">Facebook</a>
+                    <a href="https://www.instagram.com/royalchallengers.bengaluru" class="hover:text-red-500 transition duration-300">Instagram</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                © 2024 RCB Fan Zone. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
